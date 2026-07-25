@@ -1,4 +1,4 @@
-"use client";
+"use client"; //client componentとして扱うための宣言
 
 import Image from "next/image";
 import { useState } from "react";
@@ -9,12 +9,16 @@ export default function Home() {
     // APIルートの実験用関数
     const handleClick = async () => {
         const response = await fetch("/api/generate", {
-            method: "POST",
+            method: "POST", // POST通信を行う
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ text: inputValue }), // 入力値をJSON形式で送信
         });
 
         const data = await response.json();
 
-        console.log(data);
+        console.log("APIからのレスポンス:", data); // レスポンスをコンソールに表示
     };
 
     return (
