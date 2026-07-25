@@ -4,7 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
+    // ユーザーの入力値を保持するためのstate
     const [inputValue, setInputValue] = useState("");
+    // APIからのレスポンスを保持するためのstate
+    const [result, setResult] = useState("");
 
     // APIルートの実験用関数
     const handleClick = async () => {
@@ -17,8 +20,9 @@ export default function Home() {
         });
 
         const data = await response.json();
+        setResult(data.result); // APIのレスポンスをresultに格納
 
-        console.log("APIからのレスポンス:", data); // レスポンスをコンソールに表示
+        console.log("APIからのレスポンス:", data.result); // APIからの結果をコンソールに表示
     };
 
     return (
