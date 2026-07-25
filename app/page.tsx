@@ -34,6 +34,9 @@ export default function Home() {
                 width={300}
                 height={300}
             />
+            <p className="text-lg font-bold border border-gray-300 rounded-b-md  py-2 px-4 bg-white w-[80%]">
+                膨らませた文章:{result}
+            </p>
             <textarea
                 placeholder="入力してください"
                 value={inputValue}
