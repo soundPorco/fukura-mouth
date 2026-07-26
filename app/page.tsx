@@ -37,12 +37,19 @@ export default function Home() {
             <p className="text-lg font-bold border border-gray-300 rounded-b-md  py-2 px-4 bg-white w-[80%]">
                 膨らませた文章:{result}
             </p>
+            <button
+                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md"
+                onClick={() => navigator.clipboard.writeText(result)}
+            >
+                生成されたテキストをコピーする
+            </button>
             <textarea
                 placeholder="入力してください"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className="border border-gray-300 w-[80%] rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
+
             <button
                 className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-md"
                 // onClick={() => {
