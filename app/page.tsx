@@ -11,12 +11,15 @@ export default function Home() {
 
     // APIルートの実験用関数
     const handleClick = async () => {
+        if (inputValue.trim() === "") {
+            return alert("入力値が空です。文章を入力してください。");
+        }
         const response = await fetch("/api/generate", {
             method: "POST", // POST通信を行う
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ text: inputValue }), // 入力値をJSON形式で送信
+            body: JSON.stringify({ text: inputValue.trim() }), // 入力値をJSON形式で送信
         });
 
         const data = await response.json();
